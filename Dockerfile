@@ -1,7 +1,7 @@
 FROM ubuntu:16.04 
 
 RUN  apt-get update \
-     && apt-get install tinyproxy g++ make binutils autoconf automake autotools-dev libtool pkg-config \
+     && apt-get install git tinyproxy g++ make binutils autoconf automake autotools-dev libtool pkg-config \
         zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev \
         libc-ares-dev libjemalloc-dev cython python3-dev python-setuptools -qy \
      && git clone https://github.com/nghttp2/nghttp2.git \
