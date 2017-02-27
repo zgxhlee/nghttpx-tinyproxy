@@ -11,7 +11,8 @@ RUN  apt-get update \
      && automake \
      && autoconf \
      && ./configure \
-     && make
+     && make \
+     && apt-get clean
     
 ENV SERVER_CRT=none SERVER_KEY=none
 
