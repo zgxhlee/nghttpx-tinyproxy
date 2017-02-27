@@ -19,6 +19,12 @@ RUN  apk add --update git g++ make binutils autoconf automake autotools-dev libt
      && make \
      && rm -rf /var/cache/apk/*
      
+ENV SERVER_CRT=none SERVER_KEY=none
+
 ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh 
+
+RUN chgrp -R 0 /nghttp2 \
+    && chmod -R g+rwX /nghttp2 \
+    && chmod +x /entrypoint.sh
+     
 ENTRYPOINT  sh /entrypoint.sh
