@@ -1,4 +1,4 @@
-/tinyproxy/tinyproxy
+service tinyproxy start
 
 cd /nghttp2
 if [ "$CERT_PEM" != "$KEY_PEM" ]; then
