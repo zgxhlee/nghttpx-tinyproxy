@@ -10,7 +10,7 @@ RUN  apt-get update \
      && autoreconf -i \
      && automake \
      && autoconf \
-     && ./configure \
+     && ./configure --enable-app \
      && make \
      && apt-get clean
     
