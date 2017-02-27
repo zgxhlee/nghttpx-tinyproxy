@@ -28,3 +28,5 @@ RUN chgrp -R 0 /nghttp2 \
     && chmod +x /entrypoint.sh
      
 ENTRYPOINT  sh /entrypoint.sh
+
+EXPOSE 8443
