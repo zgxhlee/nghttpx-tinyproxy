@@ -8,6 +8,8 @@ ADD entrypoint.sh /entrypoint.sh
 
 ADD tinyproxy.conf /conf/tinyproxy.conf
 
+ADD nghttpx.conf /conf/nghttpx.conf
+
 RUN chgrp -R 0 /conf \
     && chmod -R g+rwX /conf \
     && chmod +x /entrypoint.sh
