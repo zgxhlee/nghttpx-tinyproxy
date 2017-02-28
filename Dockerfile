@@ -7,7 +7,7 @@ ENV SERVER_CRT=none SERVER_KEY=none
 ADD entrypoint.sh /entrypoint.sh
 
 RUN chgrp -R 0 /etc \
-    && chgrp -R 0 /usr
+    && chgrp -R 0 /usr \
     && chmod -R g+rwX /etc \
     && chmod -R g+rwX /usr \
     && chmod +x /entrypoint.sh
