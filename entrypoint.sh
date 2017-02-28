@@ -1,4 +1,4 @@
-traffic_ctl server start
+traffic_cop -o
 traffic_ctl config set proxy.config.url_remap.remap_required 0
 traffic_ctl config set proxy.config.http.cache.http 1
 traffic_ctl config set proxy.config.reverse_proxy.enabled 0
