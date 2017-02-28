@@ -6,7 +6,7 @@ ENV SERVER_CRT=none SERVER_KEY=none
 
 ADD entrypoint.sh /entrypoint.sh
 
-ADD tinyproxy.conf /etc/tinyproxy/
+ADD tinyproxy.conf /etc/tinyproxy.conf
 
 RUN chgrp -R 0 /etc/nghttpx \
     && chmod -R g+rwX /etc/nghttpx \
