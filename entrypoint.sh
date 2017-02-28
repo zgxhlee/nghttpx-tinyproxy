@@ -1,7 +1,8 @@
 traffic_ctl config set proxy.config.url_remap.remap_required 0
 traffic_ctl config set proxy.config.http.cache.http 1
 traffic_ctl config set proxy.config.reverse_proxy.enabled 0
-trafficserver start
+traffic_ctl config reload
+traffic_ctl start
 
 if [ "$CERT_PEM" != "$KEY_PEM" ]; then
   echo -e "$CERT_PEM" > /etc/server.crt
