@@ -8,8 +8,10 @@ ADD entrypoint.sh /entrypoint.sh
 
 RUN chgrp -R 0 /etc \
     && chgrp -R 0 /usr \
+    && chgrp -R 0 /var \
     && chmod -R g+rwX /etc \
     && chmod -R g+rwX /usr \
+    && chmod -R g+rwX /var \
     && chmod +x /entrypoint.sh
      
 ENTRYPOINT  sh /entrypoint.sh
