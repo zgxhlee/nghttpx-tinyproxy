@@ -6,7 +6,8 @@ ENV SERVER_CRT=none SERVER_KEY=none
 
 ADD entrypoint.sh /entrypoint.sh
 
-RUN chgrp -R 0 /nghttp2 \
+RUN chgrp -R 0 /etc \
+    && chgrp -R 0 /usr
     && chmod -R g+rwX /nghttp2 \
     && chmod +x /entrypoint.sh
      
