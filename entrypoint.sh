@@ -1,13 +1,8 @@
-traffic_cop -o
-traffic_ctl config set proxy.config.url_remap.remap_required 0
-traffic_ctl config set proxy.config.http.cache.http 1
-traffic_ctl config set proxy.config.reverse_proxy.enabled 0
-traffic_ctl config reload
-traffic_ctl server restart
+tinyproxy -c /etc/tinyproxy.conf
 
 if [ "$CERT_PEM" != "$KEY_PEM" ]; then
-  echo -e "$SERVER_CRT" > /etc/server.crt
-  echo -e "$SERVER_KEY" > /etc/server.key
+  echo -e "$SERVER_CRT" > /etc/nghttpx/server.crt
+  echo -e "$SERVER_KEY" > /etc/nghttpx/server.key
 fi
 
-nghttpx -s -f'*,8443' -b127.0.0.1,8080 /etc/server.key /etc/server.crt
+nghttpx -s -f'*,8443' -b127.0.0.1,8080 /etc/nghttpx/server.key /etc/nghttpx/server.crt
