@@ -1,6 +1,6 @@
 FROM debian:sid 
 
-RUN apt-get update && apt-get install -qy trafficserver nghttp2 &&  mkdir /nghttp2 && apt-get clean
+RUN apt-get update && apt-get install -qy trafficserver nghttp2 &&  apt-get clean 
     
 ENV SERVER_CRT=none SERVER_KEY=none
 
