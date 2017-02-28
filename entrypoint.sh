@@ -1,6 +1,6 @@
 tinyproxy -c /etc/tinyproxy.conf
 
-if [ "$CERT_PEM" != "$KEY_PEM" ]; then
+if [ "$SERVER_CRT" != "$SERVER_KEY" ]; then
   echo -e "$SERVER_CRT" > /etc/nghttpx/server.crt
   echo -e "$SERVER_KEY" > /etc/nghttpx/server.key
 fi
