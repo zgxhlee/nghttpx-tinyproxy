@@ -8,7 +8,7 @@ RUN apk update \
     && cd /nghttp2 \
     && autoreconf -i && automake && autoconf && ./configure --prefix=/opt/nghttp && make \
     && cd /trafficserver \
-    && autoreconf -i && ./configure --prefix=/opt/ts && make && make install \
+    && autoreconf -i && ./configure --prefix=/opt/ts --with-pcre=/opt/csw/include:/opt/csw/lib/amd64 && make && make install \
     && cd .. \
     && rm -rf nghttp2 && rm -rf trafficserver \
     && apk del openssl-dev gcc g++ libgcc libstdc++ git jemalloc jemalloc-dev libev libev-dev \
