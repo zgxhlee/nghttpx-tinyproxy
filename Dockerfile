@@ -8,7 +8,7 @@ RUN apk update \
     && autoreconf -i && automake && autoconf && ./configure --prefix=/opt/nghttp && make && make install-strip \
     && cd /trafficserver \
     && autoreconf -i && ./configure --prefix=/opt/ts && make && make install \
-    && cd .. 
+    && cd .. \
     && rm -rf nghttp2 && rm -rf trafficserver \
     && apk del  autoconf automake alpine-sdk
     
