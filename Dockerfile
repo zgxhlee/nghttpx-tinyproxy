@@ -1,7 +1,7 @@
 FROM alpine:3.5
 
 RUN apk update \
-    && apk add --no-cache build-base \
+    && apk add --no-cache git build-base \
     && git clone https://github.com/nghttp2/nghttp2.git \
     && git clone https://git-wip-us.apache.org/repos/asf/trafficserver.git \
     && cd /nghttp2 \
