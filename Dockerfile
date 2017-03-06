@@ -1,8 +1,7 @@
 FROM alpine:3.5
 
 RUN apk update \
-    && apk add --no-cache openssl openssl-dev gcc g++ libgcc libstdc++ git jemalloc jemalloc-dev \
-       libev libev-dev autoconf automake make libtool pkgconfig pcre libcap flex lua curl \
+    && apk add --no-cache build-base \
     && git clone https://github.com/nghttp2/nghttp2.git \
     && git clone https://git-wip-us.apache.org/repos/asf/trafficserver.git \
     && cd /nghttp2 \
@@ -11,8 +10,7 @@ RUN apk update \
     && autoreconf -i && ./configure --prefix=/opt/ts && make && make install \
     && cd .. 
     && rm -rf nghttp2 && rm -rf trafficserver\
-    && apk del openssl-dev gcc g++ git jemalloc-dev libev-dev autoconf automake make libtool \
-       pkgconfig pcre libcap flex lua curl 
+    && apk del build-base
     
 ENV SERVER_CRT=none SERVER_KEY=none
 # proxy.config.url_remap.remap_required = 0
