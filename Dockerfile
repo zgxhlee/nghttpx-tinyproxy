@@ -2,7 +2,6 @@ FROM alpine:3.5
 
 RUN apk update \
     && apk add --no-cache  autoconf automake alpine-sdk \
-    && git submodule update --init \
     && git clone https://github.com/nghttp2/nghttp2.git \
     && git clone https://github.com/apache/trafficserver.git \
     && cd /nghttp2 \
