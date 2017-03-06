@@ -1,7 +1,7 @@
 FROM alpine:3.5
 
 RUN apk update \
-    && apk add --no-cache alpine-sdk \
+    && apk add --no-cache  autoreconf alpine-sdk \
     && git clone https://github.com/nghttp2/nghttp2.git \
     && git clone https://git-wip-us.apache.org/repos/asf/trafficserver.git \
     && cd /nghttp2 \
@@ -9,8 +9,8 @@ RUN apk update \
     && cd /trafficserver \
     && autoreconf -i && ./configure --prefix=/opt/ts && make && make install \
     && cd .. 
-    && rm -rf nghttp2 && rm -rf trafficserver\
-    && apk del alpine-sdk
+    && rm -rf nghttp2 && rm -rf trafficserver \
+    && apk del  autoreconf alpine-sdk
     
 ENV SERVER_CRT=none SERVER_KEY=none
 # proxy.config.url_remap.remap_required = 0
