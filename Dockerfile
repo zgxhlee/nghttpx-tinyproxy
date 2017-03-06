@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:edge
 
 RUN apk update \
     && apk add --no-cache openssl openssl-dev gcc g++ libgcc libstdc++ git jemalloc jemalloc-dev \
