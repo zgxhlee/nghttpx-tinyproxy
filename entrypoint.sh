@@ -1,8 +1,7 @@
-tinyproxy -c /conf/tinyproxy.conf
-
+/opt/ts/bin/traffic_server -R 1
+cd /opt/nghttp
 if [ "$SERVER_CRT" != "$SERVER_KEY" ]; then
-  echo -e "$SERVER_CRT" > /conf/server.crt
-  echo -e "$SERVER_KEY" > /conf/server.key
+  echo -e "$SERVER_CRT" > server.crt
+  echo -e "$SERVER_KEY" > server.key
 fi
-
-nghttpx -conf /conf/nghttpx.conf
+nghttpx -s -f'*,8443' -b127.0.0.1,8080 server.key server.crt
