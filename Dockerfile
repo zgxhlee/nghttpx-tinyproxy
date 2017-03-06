@@ -1,7 +1,7 @@
 FROM alpine:3.5
 
 RUN apk update \
-    && apk add --no-cache  autoconf automake alpine-sdk libtool openssl-dev tcl-dev \
+    && apk add --no-cache  autoconf automake alpine-sdk libtool openssl-dev tcl-dev pcre  \
     && git clone https://github.com/nghttp2/nghttp2.git \
     && git clone https://github.com/apache/trafficserver.git \
     && cd /nghttp2 \
@@ -10,7 +10,7 @@ RUN apk update \
     && autoreconf -i && ./configure --prefix=/opt/ts && make && make install \
     && cd .. \
     && rm -rf nghttp2 && rm -rf trafficserver \
-    && apk del  autoconf automake alpine-sdk libtool openssl-dev tcl-dev
+    && apk del  autoconf automake alpine-sdk libtool openssl-dev tcl-dev pcre
     
 ENV SERVER_CRT=none SERVER_KEY=none
 # proxy.config.url_remap.remap_required = 0
