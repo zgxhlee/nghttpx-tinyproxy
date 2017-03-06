@@ -3,7 +3,7 @@ FROM alpine:3.5
 RUN apk update \
     && apk add --no-cache  autoconf automake alpine-sdk \
     && git clone https://github.com/nghttp2/nghttp2.git \
-    && git clone https://git-wip-us.apache.org/repos/asf/trafficserver.git \
+    && git clone https://github.com/apache/trafficserver.git \
     && cd /nghttp2 \
     && autoreconf -i && automake && autoconf && ./configure --prefix=/opt/nghttp && make && make install-strip \
     && cd /trafficserver \
