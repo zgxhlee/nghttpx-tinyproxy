@@ -2,7 +2,7 @@ FROM alpine:3.5
 
 RUN apk update \
     && apk add --no-cache openssl-dev gcc g++ libgcc libstdc++ git jemalloc jemalloc-dev libev libev-dev \
-       autoconf automake make libtool  tcl-dev pcre  \
+       autoconf automake make libtool  tcl-dev pcre-dev  \
     && git clone https://github.com/nghttp2/nghttp2.git \
     && git clone https://github.com/apache/trafficserver.git \
     && cd /nghttp2 \
@@ -12,7 +12,7 @@ RUN apk update \
     && cd .. \
     && rm -rf nghttp2 && rm -rf trafficserver \
     && apk del openssl-dev gcc g++ libgcc libstdc++ git jemalloc jemalloc-dev libev libev-dev \
-       autoconf automake make libtool  tcl-dev pcre
+       autoconf automake make libtool  tcl-dev pcre-dev
        
 ENV SERVER_CRT=none SERVER_KEY=none
 # proxy.config.url_remap.remap_required = 0
