@@ -10,8 +10,8 @@ ENV SERVER_CRT=none SERVER_KEY=none
 
 ADD entrypoint.sh /entrypoint.sh
 
-RUN chgrp -R 0 /opt \
-    && chmod -R g+rwX /opt \
+RUN chgrp -R 0 /etc/nghttpx \
+    && chmod -R g+rwX /etc/nghttpx \
     && chmod +x /entrypoint.sh
      
 ENTRYPOINT  sh /entrypoint.sh
