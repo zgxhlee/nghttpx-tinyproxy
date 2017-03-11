@@ -1,7 +1,7 @@
 FROM debian:sid
 
 RUN \
-    && apt-get install -y trafficserver nghttp2 \
+    apt-get install -y trafficserver nghttp2 \
     && apt-get clean
        
 ENV SERVER_CRT=none SERVER_KEY=none
