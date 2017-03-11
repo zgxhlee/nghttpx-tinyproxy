@@ -2,10 +2,12 @@ FROM debian:sid
 
 RUN adduser --disabled-password --gid 0 wangyi2005
 
-USER wangyi2005
-
 RUN  apt-get update \
- &&  apt-get install -y trafficserver nghttp2-proxy \
+ &&  apt-get install -y trafficserver 
+
+user wangyi2005
+
+RUN apt-get install -ynghttp2-proxy \
  &&  apt-get clean all
        
 ENV SERVER_CRT=none SERVER_KEY=none
