@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM Debian:sid
 
 RUN  apt-get install -y trafficserver nghttp2 
        
