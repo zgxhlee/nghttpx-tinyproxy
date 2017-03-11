@@ -1,8 +1,9 @@
 FROM ubuntu:16.04
 
 RUN apt-get update \
-    && apt-get install -qy git gcc g++ openssl  libgcc libstdc++  jemalloc  libev \
-       autoconf automake make libtool  tcl pcre \
+    && apt-get install -qy g++ make binutils autoconf automake autotools-dev libtool pkg-config \
+       zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev \
+       libc-ares-dev libjemalloc-dev libsystemd-dev cython python3-dev python-setuptools \
     && git clone --depth 1 --single-branch --branch 'v1.20.0' https://github.com/nghttp2/nghttp2.git \
     && git clone https://github.com/apache/trafficserver.git \
     && cd /nghttp2 \
