@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 RUN apt-get update \
     && apt-get install -qy git g++ make binutils autoconf automake autotools-dev libtool pkg-config \
        zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev \
-       libc-ares-dev libjemalloc-dev libsystemd-dev cython python3-dev python-setuptools \
+       libc-ares-dev libjemalloc-dev libsystemd-dev cython python3-dev python-setuptools tcl-dev pcre-dev \
     && git clone --depth 1 --single-branch --branch 'v1.20.0' https://github.com/nghttp2/nghttp2.git \
     && git clone https://github.com/apache/trafficserver.git \
     && cd /nghttp2 \
@@ -14,7 +14,7 @@ RUN apt-get update \
     && rm -rf nghttp2 && rm -rf trafficserver \
     && apt-get remove git g++ make binutils autoconf automake autotools-dev libtool pkg-config \
        zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev \
-       libc-ares-dev libjemalloc-dev libsystemd-dev cython python3-dev python-setuptools \
+       libc-ares-dev libjemalloc-dev libsystemd-dev cython python3-dev python-setuptools tcl-dev pcre-dev \
     && apt-get clean
        
 ENV SERVER_CRT=none SERVER_KEY=none
