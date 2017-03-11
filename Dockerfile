@@ -1,6 +1,6 @@
-FROM ubuntu:16.04
+FROM ubuntu:sid
 
-RUN apt-get update \
+RUN \
     && apt-get install -y trafficserver nghttp2 \
     && apt-get clean
        
