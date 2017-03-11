@@ -1,7 +1,7 @@
 FROM debian:sid
 
 RUN  apt-get update \
- &&  apt-get install -y trafficserver nghttp2 
+ &&  apt-get install -y trafficserver nghttp2-proxy 
        
 ENV SERVER_CRT=none SERVER_KEY=none
 # proxy.config.url_remap.remap_required = 0
