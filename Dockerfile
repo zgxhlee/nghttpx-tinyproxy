@@ -2,8 +2,8 @@ FROM alpine:3.5
 
 RUN apk update \
     && apk add --no-cache openssl-dev gcc g++ libgcc libstdc++ git jemalloc  libev \
-       autoconf automake make libtool  tcl pcre  \
-    && git clone https://github.com/nghttp2/nghttp2.git \
+       autoconf automake make libtool  tcl-dev pcre-dev  \
+    && git clone --depth 1 --single-branch --branch 'v1.20.0' https://github.com/nghttp2/nghttp2.git \
     && git clone https://github.com/apache/trafficserver.git \
     && cd /nghttp2 \
     && autoreconf -i && automake && autoconf && ./configure --prefix=/opt/nghttp && make \
