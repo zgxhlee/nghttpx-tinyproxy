@@ -1,5 +1,7 @@
 FROM debian:sid
 
+VOLUME  -v /var
+
 RUN  apt-get update \
  &&  apt-get install -y trafficserver nghttp2-proxy \
  &&  apt-get clean all
