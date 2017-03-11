@@ -1,6 +1,8 @@
 FROM debian:sid
 
-VOLUME  -v /var
+RUN adduser --disabled-password --gid 0 wangyi2005
+
+USER wangyi2005
 
 RUN  apt-get update \
  &&  apt-get install -y trafficserver nghttp2-proxy \
