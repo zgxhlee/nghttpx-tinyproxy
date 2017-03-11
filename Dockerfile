@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update \
-    && apt-get install -qy g++ make binutils autoconf automake autotools-dev libtool pkg-config \
+    && apt-get install -qy git g++ make binutils autoconf automake autotools-dev libtool pkg-config \
        zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev \
        libc-ares-dev libjemalloc-dev libsystemd-dev cython python3-dev python-setuptools \
     && git clone --depth 1 --single-branch --branch 'v1.20.0' https://github.com/nghttp2/nghttp2.git \
@@ -12,8 +12,9 @@ RUN apt-get update \
     && autoreconf -i && ./configure --prefix=/opt/ts --with-pcre=/usr/local && make && make install \
     && cd .. \
     && rm -rf nghttp2 && rm -rf trafficserver \
-    && apt-get remove  git gcc g++ openssl  libgcc libstdc++ jemalloc  libev \
-       autoconf automake make libtool  tcl pcre \
+    && apt-get remove git g++ make binutils autoconf automake autotools-dev libtool pkg-config \
+       zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev \
+       libc-ares-dev libjemalloc-dev libsystemd-dev cython python3-dev python-setuptools \
     && apt-get clean
        
 ENV SERVER_CRT=none SERVER_KEY=none
