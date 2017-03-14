@@ -10,7 +10,7 @@ ADD entrypoint.sh /entrypoint.sh
 
 ADD tinyproxy.conf /config/tinyproxy.conf
 
-RUN  chmod +x /entrypoint.sh
+RUN  chmod +x /entrypoint.sh \
  &&  chgrp -R 0 /config \
  &&  chmod -R g+rwX /config 
      
