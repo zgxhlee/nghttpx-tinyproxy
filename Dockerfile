@@ -1,21 +1,16 @@
-FROM debian:sid
-
-RUN adduser --disabled-password --gid 0 wangyi2005
-ENV HOME = /home/wangyi2005
-RUN  apt-get update \
- &&  apt-get install -y trafficserver nghttp2-proxy \
- &&  apt-get clean all
-       
-ENV SERVER_CRT=none SERVER_KEY=none
-# proxy.config.url_remap.remap_required = 0
-# proxy.config.http.cache.http = 1
-# proxy.config.reverse_proxy.enabled = 0
+FROM alpine:edge
+# tinyproxy 1.8.4
+# nghttp2 1.20
+RUN  apk add --no-cache --update tinyproxy nghttp2 \
+ &&  mkdir -m 777 /config \
+ &&  chgrp -R 0 /config \
+ && chmod -R g+rwX /config 
+ 
+ENV TINYPROXY_CONF=none SERVER_CRT=none SERVER_KEY=none
 
 ADD entrypoint.sh /entrypoint.sh
-USER  wangyi2005
-RUN chgrp -R 0 /etc/nghttpx \
-    && chmod -R g+rwX /etc/nghttpx \
-    && chmod +x /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
      
 ENTRYPOINT  sh /entrypoint.sh
 
