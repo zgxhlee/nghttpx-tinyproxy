@@ -2,15 +2,17 @@ FROM alpine:edge
 # tinyproxy 1.8.4
 # nghttp2 1.20
 RUN  apk add --no-cache --update tinyproxy nghttp2 \
- &&  mkdir -m 777 /config \
- &&  chgrp -R 0 /config \
- && chmod -R g+rwX /config 
+ &&  mkdir -m 777 /config 
  
-ENV TINYPROXY_CONF=none SERVER_CRT=none SERVER_KEY=none
+ENV SERVER_CRT=none SERVER_KEY=none
 
 ADD entrypoint.sh /entrypoint.sh
 
-RUN chmod +x /entrypoint.sh
+ADD tinyproxy.conf /config/tinyproxy.conf
+
+RUN  chmod +x /entrypoint.sh
+ &&  chgrp -R 0 /config \
+ &&  chmod -R g+rwX /config 
      
 ENTRYPOINT  sh /entrypoint.sh
 
