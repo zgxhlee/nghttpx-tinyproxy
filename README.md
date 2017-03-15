@@ -5,3 +5,4 @@ tinyproxy: A light-weight HTTP/HTTPS proxy daemon https://tinyproxy.github.io/
 
 you can deploy this image(wangyi2005/nghttpx-tinyproxy) at openshift3 or VPS
 
+Tutorial： https://github.com/wangyi2005/nghttpx-tinyproxy/issues/1
