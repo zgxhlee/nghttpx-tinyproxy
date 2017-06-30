@@ -1,6 +1,6 @@
 FROM alpine:edge
 # tinyproxy 1.8.4
-# nghttp2 1.20
+# nghttp2 1.23
 RUN  apk add --no-cache --update tinyproxy nghttp2 \
  &&  mkdir -m 777 /config 
  
