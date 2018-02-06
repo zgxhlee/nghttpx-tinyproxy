@@ -4,7 +4,7 @@ FROM alpine:edge
 RUN  apk add --no-cache --update tinyproxy nghttp2 \
  &&  mkdir -m 777 /config 
  
-ENV SERVER_CRT=none SERVER_KEY=none1
+ENV SERVER_CRT=none SERVER_KEY=none
 
 ADD entrypoint.sh /entrypoint.sh
 
